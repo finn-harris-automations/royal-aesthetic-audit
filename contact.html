@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Bookings — Royal Aesthetic London</title>
+<meta name="description" content="Visit Royal Aesthetic London or book a complimentary consultation. Mayfair-based aesthetic clinic by Roxana.">
+<link rel="icon" href="assets/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Playfair:ital,wght@0,300;0,700;1,700&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Royal Aesthetic London"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="treatments.html">Treatments</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Book Consultation</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu" onclick="document.getElementById('nav').classList.toggle('nav-mobile-open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <span class="eyebrow-line">Visit · Book · Enquire</span>
+  <h1>Get in touch</h1>
+  <p>Send a private message, ask a question, or request your complimentary first consultation. Roxana personally responds to every enquiry — usually within a working day.</p>
+</header>
+
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow-line">Reach Us</span>
+        <h2>The clinic.</h2>
+        <p style="margin-bottom: 36px;">Royal Aesthetic London is a private, by-appointment clinic. We do not accept walk-ins — every visit is reserved for one client at a time.</p>
+
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">◆</div>
+            <div class="contact-info-text">
+              <strong>Visit</strong>
+              <span>Mayfair, London W1<br>(exact address shared on booking)</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">✉</div>
+            <div class="contact-info-text">
+              <strong>Email</strong>
+              <a href="mailto:hello@royalaesthetic.co.uk">hello@royalaesthetic.co.uk</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">☎</div>
+            <div class="contact-info-text">
+              <strong>Call or message</strong>
+              <a href="tel:+442000000000">+44 (0)20 0000 0000</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">⊙</div>
+            <div class="contact-info-text">
+              <strong>Hours</strong>
+              <span>Monday–Saturday<br>By appointment only · 10:00–19:00</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">@</div>
+            <div class="contact-info-text">
+              <strong>Instagram</strong>
+              <a href="https://instagram.com/royalaestheticlondon">@royalaestheticlondon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="eyebrow-line">Booking Enquiry</span>
+        <h2>Request a consultation.</h2>
+        <p style="margin-bottom: 36px;">Tell us a little about what you're considering. Roxana will respond personally with availability and any preliminary advice.</p>
+
+        <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent — we\'ll reply soon ✓'; this.querySelector('button').disabled=true;">
+          <div class="form-row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your full name" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" placeholder="Mobile number">
+            </div>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label for="treatment">Treatment of interest</label>
+            <select id="treatment">
+              <option>I'm not sure yet — please advise</option>
+              <option>Lip Filler</option>
+              <option>Anti-Wrinkle Injections</option>
+              <option>Profhilo</option>
+              <option>Skin Boosters</option>
+              <option>Brazilian Bum Lift</option>
+              <option>Full-Face Consultation</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us what you're considering, any concerns, and your ideal timeframe..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="surface">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Frequent Questions</span>
+      <h2>Before your first visit</h2>
+    </div>
+
+    <div class="faq" style="max-width: 800px; margin: 0 auto;">
+      <details>
+        <summary>Is the consultation really complimentary?</summary>
+        <p>Yes. Your first 30-minute consultation with Roxana is complimentary, with no obligation to proceed. We will discuss your goals, assess your face, and walk you through realistic options — that is all. If you are not ready, you are not ready.</p>
+      </details>
+      <details>
+        <summary>Do you take walk-ins?</summary>
+        <p>No. The clinic operates strictly by appointment so that every client has Roxana's full attention, in private, without the rush or noise of a busier salon.</p>
+      </details>
+      <details>
+        <summary>How do I prepare for my first appointment?</summary>
+        <p>Avoid alcohol and blood-thinning supplements (such as fish oil, vitamin E and ibuprofen) for 48 hours beforehand if possible. Otherwise, simply arrive with clean skin and any photos that have inspired you. Detailed pre-treatment guidance will be sent on confirmation.</p>
+      </details>
+      <details>
+        <summary>What is your cancellation policy?</summary>
+        <p>We ask for 48 hours' notice for any cancellation or rescheduling. Late cancellations may forfeit a portion of any deposit paid — full details are sent on booking.</p>
+      </details>
+      <details>
+        <summary>Are payment plans available?</summary>
+        <p>Yes — for treatment courses (such as Profhilo or skin booster packages) we offer split-payment plans. Speak to Roxana on consultation.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/images/logo.png" alt="Royal Aesthetic London">
+      <p>Boutique aesthetic clinic in London — premium injectable and skin treatments delivered with precision, discretion and care.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="treatments/lip-filler.html">Lip Filler</a></li>
+        <li><a href="treatments/anti-wrinkle.html">Anti-Wrinkle</a></li>
+        <li><a href="treatments/profhilo.html">Profhilo</a></li>
+        <li><a href="treatments/skin-booster.html">Skin Boosters</a></li>
+        <li><a href="treatments/bbl.html">Brazilian Bum Lift</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Clinic</h4>
+      <ul>
+        <li><a href="about.html">About Roxana</a></li>
+        <li><a href="treatments.html">All Treatments</a></li>
+        <li><a href="contact.html">Visit the Clinic</a></li>
+        <li><a href="contact.html">Book Online</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>Mayfair, London</li>
+        <li><a href="mailto:hello@royalaesthetic.co.uk">hello@royalaesthetic.co.uk</a></li>
+        <li><a href="tel:+442000000000">+44 (0)20 0000 0000</a></li>
+        <li><a href="https://instagram.com/royalaestheticlondon">@royalaestheticlondon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Royal Aesthetic London. All rights reserved.</span>
+    <div class="footer-social">
+      <a href="https://instagram.com/royalaestheticlondon" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="Facebook">FB</a>
+      <a href="mailto:hello@royalaesthetic.co.uk" aria-label="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
