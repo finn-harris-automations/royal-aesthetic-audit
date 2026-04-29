@@ -793,7 +793,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 50px;
   }
-  .hero-image { order: -1; }
+  .hero-image { display: none; }
   .treatments, .pillars { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   .treatment-detail-image { position: relative; top: 0; }
