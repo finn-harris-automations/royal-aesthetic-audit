@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Royal Aesthetic — Website Audit | Harris Automations</title>
+<meta name="description" content="A frontend, backend, SEO and conversion audit of royalaesthetic.co.uk — prepared for Roxana Man by Harris Automations." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230066FF'/%3E%3Ctext x='50%25' y='58%25' font-size='38' font-weight='700' text-anchor='middle' fill='white' font-family='-apple-system,Segoe UI,Roboto,sans-serif'%3EH%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #fbfbfd;
+    --bg-tertiary: #f5f5f7;
+    --bg-inverse: #1d1d1f;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --text-muted: #86868b;
+    --text-inverse: #f5f5f7;
+    --text-inverse-muted: #a1a1a6;
+    --accent: #0066FF;
+    --accent-soft: #e6efff;
+    --accent-hover: #0052cc;
+    --divider: #d2d2d7;
+    --divider-inverse: #2c2c2e;
+    --border-soft: #e8e8ed;
+    --crit: #ff453a;
+    --crit-soft: #ffe7e5;
+    --high: #ff9500;
+    --high-soft: #fff1de;
+    --med: #ffcc00;
+    --med-soft: #fff8d6;
+    --strat: #34c759;
+    --strat-soft: #ddf6e1;
+    --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
+    --container: 1120px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-pill: 980px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+  /* ───── Top nav ───── */
+  .topnav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .topnav .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-primary); }
+  .brand .logo {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--accent); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px;
+  }
+  .brand .name { font-size: 15px; }
+  .brand .name span { color: var(--text-secondary); font-weight: 400; }
+  .topnav .right a { font-size: 14px; color: var(--text-secondary); margin-left: 22px; }
+  .topnav .right a:hover { color: var(--text-primary); text-decoration: none; }
+  .topnav .right .pill {
+    display: inline-block; padding: 8px 16px; border-radius: 980px;
+    background: var(--text-primary); color: white !important;
+    font-weight: 500;
+  }
+  .topnav .right .pill:hover { background: #000; }
+
+  /* ───── Hero ───── */
+  .hero { padding: 96px 0 72px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-soft); }
+  .hero .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-soft); color: var(--accent);
+    padding: 6px 14px; border-radius: 980px; font-size: 13px; font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .hero .eyebrow::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  }
+  .hero h1 {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 1.05; letter-spacing: -0.025em; font-weight: 700;
+    margin: 0 0 20px; max-width: 880px;
+  }
+  .hero h1 em {
+    font-style: normal; background: linear-gradient(120deg, var(--accent) 0%, #00c2ff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .lead {
+    font-size: 1.25rem; color: var(--text-secondary); max-width: 760px;
+    margin: 0 0 32px; line-height: 1.5;
+  }
+  .hero .meta {
+    display: flex; flex-wrap: wrap; gap: 28px; align-items: center;
+    color: var(--text-muted); font-size: 14px;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 28px; margin-top: 36px;
+  }
+  .hero .meta .item strong { color: var(--text-primary); font-weight: 600; display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+
+  /* ───── Stat band ───── */
+  .stats { padding: 72px 0; background: var(--bg-primary); border-bottom: 1px solid var(--border-soft); }
+  .stats .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stat {
+    padding: 32px 24px; border-radius: var(--radius-lg);
+    background: var(--bg-secondary); border: 1px solid var(--border-soft);
+  }
+  .stat .num {
+    font-size: 2.75rem; font-weight: 700; line-height: 1;
+    letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 10px;
+  }
+  .stat.crit .num { color: var(--crit); }
+  .stat.high .num { color: var(--high); }
+  .stat.med .num { color: #d4a300; }
+  .stat.strat .num { color: var(--strat); }
+  .stat .label { font-size: 14px; color: var(--text-secondary); line-height: 1.4; }
+
+  /* ───── Section ───── */
+  section.audit { padding: 96px 0; border-bottom: 1px solid var(--border-soft); }
+  section.audit:nth-of-type(odd) { background: var(--bg-secondary); }
+  .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 56px; flex-wrap: wrap; }
+  .section-head .label-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 980px;
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+  .section-head h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; margin: 0 0 12px; }
+  .section-head .sub { color: var(--text-secondary); font-size: 1.0625rem; max-width: 640px; margin: 0; }
+
+  .crit .label-pill { background: var(--crit-soft); color: var(--crit); }
+  .high .label-pill { background: var(--high-soft); color: #c46900; }
+  .med .label-pill { background: var(--med-soft); color: #8a6d00; }
+  .strat .label-pill { background: var(--strat-soft); color: #1f8a3a; }
+
+  /* ───── Audit cards ───── */
+  .item {
+    background: var(--bg-primary); border: 1px solid var(--border-soft); border-radius: var(--radius-xl);
+    padding: 36px; margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px;
+  }
+  .item:hover { box-shadow: var(--shadow-md); }
+  .item.with-image { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+  .item .num-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 8px;
+    font-weight: 700; font-size: 14px;
+    margin-right: 12px; vertical-align: 2px;
+  }
+  .crit .num-badge { background: var(--crit-soft); color: var(--crit); }
+  .high .num-badge { background: var(--high-soft); color: #c46900; }
+  .med .num-badge { background: var(--med-soft); color: #8a6d00; }
+  .strat .num-badge { background: var(--strat-soft); color: #1f8a3a; }
+
+  .item h3 { font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.01em; font-weight: 600; margin: 0 0 16px; }
+  .item .body { font-size: 1.0625rem; color: var(--text-primary); line-height: 1.65; }
+  .item .body p { margin: 0 0 14px; }
+  .item .body ul { padding-left: 22px; margin: 8px 0 14px; }
+  .item .body li { margin-bottom: 6px; }
+  .item .body code {
+    background: var(--bg-tertiary); padding: 2px 6px; border-radius: 5px;
+    font: 13px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  .item .why {
+    display: flex; gap: 12px; padding: 16px 18px; margin: 16px 0 14px;
+    background: var(--bg-tertiary); border-radius: var(--radius-md);
+    font-size: 15px; color: var(--text-primary); line-height: 1.55;
+  }
+  .item .why strong { color: var(--text-primary); }
+  .item .fix {
+    display: flex; gap: 12px; padding: 16px 18px; margin-top: 14px;
+    background: var(--accent-soft); border-radius: var(--radius-md);
+    font-size: 15px; color: var(--text-primary); line-height: 1.55;
+  }
+  .item .fix strong { color: var(--accent); }
+  .item .fix svg { flex-shrink: 0; margin-top: 2px; }
+  .item .why svg { flex-shrink: 0; margin-top: 2px; color: var(--text-secondary); }
+
+  .figure {
+    border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-tertiary);
+    border: 1px solid var(--border-soft);
+    align-self: start;
+  }
+  .figure img { display: block; width: 100%; height: auto; }
+  .figure .caption {
+    padding: 12px 16px; font-size: 13px; color: var(--text-secondary);
+    border-top: 1px solid var(--border-soft); background: var(--bg-primary);
+  }
+  .figure .caption strong { color: var(--text-primary); font-weight: 600; }
+
+  /* ───── Priority list ───── */
+  .priority { padding: 96px 0; background: var(--bg-inverse); color: var(--text-inverse); }
+  .priority h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin: 0 0 16px; letter-spacing: -0.02em; }
+  .priority .sub { color: var(--text-inverse-muted); margin: 0 0 48px; max-width: 640px; }
+  .priority ol {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;
+    counter-reset: priority;
+  }
+  .priority li {
+    background: var(--divider-inverse); border-radius: var(--radius-lg); padding: 24px 24px 28px;
+    counter-increment: priority; position: relative; padding-top: 64px;
+    transition: transform .25s var(--ease);
+  }
+  .priority li:hover { transform: translateY(-3px); }
+  .priority li::before {
+    content: counter(priority);
+    position: absolute; top: 20px; left: 24px;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--accent); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px;
+  }
+  .priority li h4 { font-size: 1.0625rem; margin: 0 0 8px; line-height: 1.35; }
+  .priority li p { margin: 0; color: var(--text-inverse-muted); font-size: 14px; line-height: 1.5; }
+  .priority li .time {
+    display: inline-block; margin-top: 14px; font-size: 12px; color: var(--accent);
+    background: rgba(0, 102, 255, 0.15); padding: 4px 10px; border-radius: 980px; font-weight: 500;
+  }
+
+  /* ───── Phase mapping ───── */
+  .phases { padding: 96px 0; }
+  .phases h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin: 0 0 16px; letter-spacing: -0.02em; }
+  .phases .sub { color: var(--text-secondary); margin: 0 0 40px; max-width: 720px; }
+  .phase-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    background: var(--bg-secondary); border-radius: var(--radius-lg);
+    overflow: hidden; border: 1px solid var(--border-soft);
+    font-size: 15px;
+  }
+  .phase-table th, .phase-table td {
+    padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--border-soft);
+    vertical-align: top;
+  }
+  .phase-table thead th {
+    background: var(--bg-tertiary); font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary);
+  }
+  .phase-table tbody tr:last-child td { border-bottom: 0; }
+  .phase-table .ph {
+    display: inline-block; padding: 4px 10px; border-radius: 980px;
+    font-size: 12px; font-weight: 600;
+  }
+  .ph-1 { background: var(--accent-soft); color: var(--accent); }
+  .ph-2 { background: #f5e6ff; color: #8c2bdb; }
+  .ph-3 { background: #ffe7d1; color: #c46900; }
+  .ph-bonus { background: var(--strat-soft); color: #1f8a3a; }
+
+  /* ───── Footer ───── */
+  footer.foot { padding: 64px 0 80px; border-top: 1px solid var(--border-soft); background: var(--bg-secondary); }
+  footer.foot .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+  footer.foot .left { max-width: 480px; }
+  footer.foot h3 { font-size: 1.25rem; margin: 0 0 12px; }
+  footer.foot p { color: var(--text-secondary); margin: 0 0 12px; font-size: 15px; }
+  footer.foot .cta {
+    display: inline-block; padding: 12px 22px; border-radius: 980px;
+    background: var(--text-primary); color: white;
+    font-weight: 500; font-size: 15px; transition: background .2s var(--ease);
+    margin-top: 8px;
+  }
+  footer.foot .cta:hover { background: #000; text-decoration: none; }
+  footer.foot .small { color: var(--text-muted); font-size: 12px; margin-top: 24px; }
+
+  @media (max-width: 880px) {
+    .hero { padding: 64px 0 48px; }
+    .stats .grid { grid-template-columns: repeat(2, 1fr); }
+    .item { padding: 24px; gap: 20px; }
+    .item.with-image { grid-template-columns: 1fr; }
+    .topnav .right a { margin-left: 14px; }
+    .topnav .right a:not(.pill) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───── Top nav ───── -->
+<header class="topnav">
+  <div class="container row">
+    <div class="brand">
+      <div class="logo">H</div>
+      <div class="name">Harris Automations <span>· Audit</span></div>
+    </div>
+    <nav class="right">
+      <a href="#critical">Critical</a>
+      <a href="#high">High</a>
+      <a href="#priority">Top 5</a>
+      <a href="#phases" class="pill">Proposal</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ───── Hero ───── -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Prepared for Roxana &middot; Royal Aesthetic London</div>
+    <h1>Your site is <em>quietly costing you bookings.</em><br/>Here's exactly where, and how to fix it.</h1>
+    <p class="lead">A frontend, backend, SEO and conversion audit of <a href="https://www.royalaesthetic.co.uk" target="_blank" rel="noopener">royalaesthetic.co.uk</a>. Quick wins are at the top &mdash; some take 5 minutes, fix things that are <em>actively losing you Google traffic and bookings today</em>, and cost nothing.</p>
+
+    <div class="meta">
+      <div class="item"><strong>Site</strong>royalaesthetic.co.uk</div>
+      <div class="item"><strong>Platform</strong>Squarespace (Fluid Engine)</div>
+      <div class="item"><strong>Auditor</strong>Finn Harris &middot; Harris Automations</div>
+      <div class="item"><strong>Date</strong>29 April 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── Stats ───── -->
+<section class="stats">
+  <div class="container">
+    <div class="grid">
+      <div class="stat crit"><div class="num">5</div><div class="label">Critical issues hurting Google ranking and trust right now</div></div>
+      <div class="stat high"><div class="num">5</div><div class="label">High-priority conversion blockers on service pages</div></div>
+      <div class="stat med"><div class="num">5</div><div class="label">Polish items that cumulatively cheapen the brand</div></div>
+      <div class="stat strat"><div class="num">3</div><div class="label">Bigger strategic projects (mostly Phase 2/3 of the proposal)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────── CRITICAL ────────────── -->
+<section id="critical" class="audit crit">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="label-pill">&#x25CF; Critical &middot; fix this week</span>
+        <h2>Things actively losing you bookings today</h2>
+      </div>
+      <p class="sub">Each item below is independently verifiable in the live site or Google search results. Most are 5-minute changes inside Squarespace settings &mdash; nothing here needs a developer.</p>
+    </div>
+
+    <!-- Item 1 -->
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge">1</span>Your site appears on Google as <em>"Your Site Title"</em></h3>
+        <div class="body">
+          <p>The page title that Google shows in search results &mdash; for <strong>every single page</strong> on the site &mdash; is the literal Squarespace placeholder text "Your Site Title". I confirmed this in two places:</p>
+          <ul>
+            <li>The HTML source: <code>&lt;title&gt;Your Site Title&lt;/title&gt;</code></li>
+            <li>Live Google results: the homepage shows up as "Your Site Title", and <code>/academy</code> as <em>"Aesthetic Training Academy | Expert Courses | Royal Aesthetic — Your Site Title"</em></li>
+          </ul>
+          <div class="why">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Why it matters:</strong> people searching "lip filler London" see a generic placeholder where your brand should be. They scroll past. This is the single highest-impact fix on the entire site.</span>
+          </div>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> Squarespace &rarr; <em>Settings &rarr; SEO &rarr; Site Title</em>. Set to e.g. <code>Royal Aesthetic London | Lip Filler, Anti-Wrinkle &amp; Profhilo Clinic — Edgware &amp; Cavendish Square</code>. The empty <code>meta description</code>, the placeholder <code>og:title</code>, <code>twitter:title</code> and the schema name all auto-update from this. Also: change the Open Graph image (it's still a "50% off" promo banner — that's what shows when someone shares your site on WhatsApp or Facebook).</span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/01-google-serp.png" alt="Google search results showing Your Site Title placeholder for royalaesthetic.co.uk" />
+        <div class="caption"><strong>Live Google search:</strong> <code>site:royalaesthetic.co.uk</code>. Every result reads "Your Site Title".</div>
+      </div>
+    </article>
+
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge"></span>The HTML source confirms it</h3>
+        <div class="body">
+          <p>If you're curious to verify yourself, right-click the homepage &rarr; <em>View Page Source</em>. Line 14 is the smoking gun. Open Graph and Twitter tags share the same placeholder, so link previews on WhatsApp / Instagram / Facebook all read "Your Site Title" too.</p>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/06-source-title.png" alt="View source of royalaesthetic.co.uk highlighting the Your Site Title placeholder" />
+        <div class="caption">View-source on the live homepage. The empty <code>meta description</code> on line 12 is the second SEO killer.</div>
+      </div>
+    </article>
+
+    <!-- Item 2 -->
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge">2</span>URL typos are indexed by Google</h3>
+        <div class="body">
+          <p>Your sitemap currently has these live URLs:</p>
+          <ul>
+            <li><code>/lip-filers-2</code> &mdash; should be <code>lip-fillers</code> (missing one L, and the <code>-2</code> screams "duplicate page")</li>
+            <li><code>/profphilo-face</code> &mdash; should be <code>profhilo-face</code> (extra P)</li>
+          </ul>
+          <p>Plus several near-identical duplicates: <code>/lip</code> + <code>/lip-filers-2</code> + <code>/lips-filler-price</code>; <code>/membership</code> + <code>/membership-1</code>; <code>/terms-and-conditions</code> + <code>/terms-and-conditions-1</code>; <code>/brazilian-bum-lift</code> + <code>/brazilian-bum-lift-1</code>; <code>/profhilo-face</code> + <code>/profphilo-face</code>.</p>
+          <div class="why">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Why it matters:</strong> Google can't tell which version is the "real" page, so it splits your ranking power across both. Worse, the typos make you look unprofessional in search results.</span>
+          </div>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> in Squarespace pick one canonical version per service, fix the slug spelling, and 301-redirect duplicates to the canonical (<em>Settings &rarr; URL Mappings</em>: <code>/lip-filers-2 -> /lip-fillers 301</code>).</span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/07-sitemap-typos.png" alt="sitemap.xml entries showing typos and duplicate URLs" />
+        <div class="caption">Selected entries from <code>royalaesthetic.co.uk/sitemap.xml</code>. Typos in red, duplicates in orange.</div>
+      </div>
+    </article>
+
+    <!-- Item 3 -->
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge">3</span>The wrong text is in your H1</h3>
+        <div class="body">
+          <p>Your homepage's <strong>H1</strong> &mdash; the most important heading for SEO &mdash; is currently <code>SPECIAL OFFERS</code>. Your actual brand promise &mdash; <em>"Natural results. Medical-grade aesthetics. Personalised care."</em> &mdash; isn't in any heading tag at all.</p>
+          <p>The screenshot to the right shows a different problem too: two CTAs side by side that compete for attention &mdash; we'll come back to that as item #9.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> restructure so the hero headline is an H1 with treatment + location keywords (e.g. <em>"Natural-result lip filler &amp; aesthetic treatments — Edgware &amp; Oxford Street, London"</em>). Demote "Special Offers" to H2.</span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/02-homepage-hero.png" alt="Royal Aesthetic homepage hero with two side-by-side CTAs" />
+        <div class="caption">Hero section above the fold. The visible text is good copy &mdash; it's just not in an H1.</div>
+      </div>
+    </article>
+
+    <!-- Item 4 -->
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge">4</span>Phone number conflict on the contact page</h3>
+        <div class="body">
+          <p>Two different phone numbers appear: <strong>07882 031942</strong> on the homepage vs <strong>07882 931942</strong> on the contact page. One digit different &mdash; one of them is wrong, and a wrong number is a dropped lead.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> confirm the correct number and update everywhere. Switch <code>wa.me/message/W3APM5NFRMTPB1</code> to a direct number link <code>wa.me/447882031942</code> &mdash; opens faster on iOS/Android.</span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/04-contact-page.png" alt="Royal Aesthetic contact page" />
+        <div class="caption">Contact page. Phone listed twice, location section shows only Cavendish Square &mdash; see item #5.</div>
+      </div>
+    </article>
+
+    <!-- Item 5 -->
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">5</span>Edgware location is hidden on the Contact page</h3>
+        <div class="body">
+          <p>The homepage advertises <strong>two locations</strong> (Edgware HA8 + Cavendish Square W1G). The contact page only shows Cavendish Square. People searching for a clinic in Edgware bounce.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> add both addresses to <code>/contact</code> with separate Google Maps embeds, and create separate <code>LocalBusiness</code> schema entries per branch. Bonus &mdash; register a <strong>Google Business Profile per location</strong>. This is the single biggest local-SEO unlock you have available.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ────────────── HIGH PRIORITY ────────────── -->
+<section id="high" class="audit high">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="label-pill">&#x25CF; High priority &middot; fix this month</span>
+        <h2>Quietly killing conversion</h2>
+      </div>
+      <p class="sub">These don't show up in search-result audits but they cost you bookings every week. Most are content additions, not technical work.</p>
+    </div>
+
+    <!-- 6 -->
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">6</span>No medical credentials on a medical-aesthetic site</h3>
+        <div class="body">
+          <p>The site repeatedly says "medical-grade products" and "highly experienced clinician" but never names: practitioner name + qualifications (NMC pin / GMC number / Save Face / JCCP membership), insurance / regulator, training body badges, or CQC registration.</p>
+          <div class="why">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Why it matters:</strong> post Botched-Britain coverage, UK aesthetic clients heavily filter by "is this person qualified?". Clinics on your block that show <strong>Save Face / JCCP</strong> badges convert visibly better. A careful prospect googling you can't currently find any independent verification, so they pick a competitor who has it on their homepage.</span>
+          </div>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix (quick):</strong> "Meet Roxana" section with photo, qualifications, years experience, regulator badges, register profile link. <strong>Fix (longer):</strong> if you're not on Save Face / JCCP yet, applying is worth it for the badge alone (~£200/yr — pays for itself in a single booking).</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge">7</span>You have a 5.0 ★ Treatwell rating &mdash; nowhere on your site</h3>
+        <div class="body">
+          <p>You have a <strong>5.0 rating with 12 reviews</strong> on Treatwell and you're not surfacing it anywhere on royalaesthetic.co.uk. This is your single best trust asset and it's hidden.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix this week:</strong>
+              <ul>
+                <li>Add a "Reviews" strip on the homepage with the star rating + 3 quoted reviews + a <em>"Read all on Treatwell"</em> link</li>
+                <li>Use Squarespace's testimonial block (or the Elfsight widget you already have loaded) to pull live reviews</li>
+                <li>Add <code>Review</code> / <code>AggregateRating</code> schema markup so the stars show up in Google search results next to your listing</li>
+              </ul>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/05-treatwell-reviews.png" alt="Treatwell page for Royal Aesthetic showing 5.0 star rating, 12 reviews" />
+        <div class="caption"><a href="https://www.treatwell.co.uk/place/royal-aesthetic-1/" target="_blank" rel="noopener">treatwell.co.uk &middot; Royal Aesthetic</a> &mdash; the single best trust asset, hidden from your own site.</div>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge">8</span>Service pages have prices &mdash; but nothing to sell the treatment</h3>
+        <div class="body">
+          <p>The Lip Filler page lists six options in a table (£150&ndash;£300) but has no:</p>
+          <ul>
+            <li>Treatment description (what is "Russian" vs "Cherry Lips"? Most prospects don't know)</li>
+            <li>Before/after photos</li>
+            <li>Recovery / aftercare info</li>
+            <li>Practitioner name</li>
+            <li>FAQs ("Will it hurt?", "How long does it last?", "Can I have it before a wedding?")</li>
+            <li>Reviews</li>
+            <li>"What to expect on the day"</li>
+          </ul>
+          <div class="why">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Why it matters:</strong> prospects who land here from Google have <em>high intent but low information</em>. Without descriptions, the page feels like a menu in a language they don't speak &mdash; they leave to find a clinic that explains it. Pages that <em>do</em> have FAQ content rank higher because Google rewards depth.</span>
+          </div>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> for each of your 5 service pages add 4 sections &mdash; <em>What it is</em>, <em>Before / after</em>, <em>What to expect</em>, <em>FAQ</em> (5-7 questions pulled from real DMs you've answered). This same content doubles as the knowledge base for the chatbot in Phase 1, so it's never wasted work.</span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/03-lip-filler-page.png" alt="Lip filler price page showing only a price table with no descriptions" />
+        <div class="caption">Lip Filler price page. Six SKUs, prices, no context.</div>
+      </div>
+    </article>
+
+    <!-- 9 -->
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">9</span>The hero is doing two jobs and confusing visitors</h3>
+        <div class="body">
+          <p>Two CTAs sit side by side: <strong>"Free Consultation"</strong> (WhatsApp) and <strong>"Book Treatment"</strong> (FacesConsent). For a first-time visitor it's not clear which one is for them. See the hero screenshot above &mdash; both buttons have the same visual weight.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> label by intent, not action. <em>Primary:</em> "New here? Free 10-min WhatsApp consult". <em>Secondary:</em> "Returning client? Book your treatment". 95% of new leads come via Instagram DM &mdash; the WhatsApp path should be the visually dominant one for cold traffic.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 -->
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">10</span>Package pages don't break out what's included</h3>
+        <div class="body">
+          <p>"Gold Full Face Package" and "Natural Look Package" are mentioned on the homepage but don't show: total saving vs buying treatments separately, per-item value breakdown, or photos of typical results.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> add a comparison table showing list price vs package price + savings. People don't buy a £600 package without seeing the maths.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ────────────── MEDIUM ────────────── -->
+<section id="medium" class="audit med">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="label-pill">&#x25CF; Medium &middot; brand polish</span>
+        <h2>The small stuff that adds up</h2>
+      </div>
+      <p class="sub">None of these individually move the needle, but cumulatively they cheapen the brand on a &pound;300-treatment service.</p>
+    </div>
+
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">11</span>Image SEO: 21 of 23 homepage images have empty alt text</h3>
+        <div class="body">
+          <p>Plus your logo <code>&lt;img&gt;</code> has alt text that's the placeholder "Your Site Title".</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> in Squarespace click each image and write descriptive alt text &mdash; e.g. <em>"Lip filler before and after at Royal Aesthetic London Edgware clinic"</em>. Helps blind / screen-reader users (legal requirement), unlocks Google Image search traffic, reinforces your keyword set.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">12</span>Schema markup is broken</h3>
+        <div class="body">
+          <p>Your <code>LocalBusiness</code> schema has empty <code>address</code> and empty <code>openingHours</code> fields, despite the real values being shown on the page. Your <code>WebSite</code> schema name is "Your Site Title".</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> Squarespace &rarr; <em>Settings &rarr; Business Information</em>: fill in address + opening hours. Once you fix the site title (item 1), these auto-update.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">13</span>Typos and inconsistent capitalisation</h3>
+        <div class="body">
+          <ul>
+            <li><code>NNATURAL ENHANCEMENT</code> &mdash; homepage H2, double N</li>
+            <li><code>What Our Clients Say About Edgware  Clinic</code> &mdash; double space</li>
+            <li>URL slug <code>/lip-filers</code> &mdash; missing L</li>
+            <li>Mixed TITLE CASE and Sentence case headings throughout</li>
+          </ul>
+          <p>These don't move conversion much individually but cumulatively they cheapen the brand on a £300-treatment service.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="item with-image">
+      <div>
+        <h3><span class="num-badge">14</span>Homepage HTML is 500KB and ships dozens of full-resolution photos</h3>
+        <div class="body">
+          <p>Your TTFB (server response time) is fast (157ms &mdash; Squarespace's CDN is doing well), but page weight is heavy because Squarespace ships full-res photos and the homepage has many of them. On 4G this is a slow first paint.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> in Squarespace each image block has a quality toggle &mdash; set non-hero images to "web". Reduce homepage image count: if you have 15+ photos above the testimonial section, cut to 6-8.</span>
+          </div>
+        </div>
+      </div>
+      <div class="figure">
+        <img src="images/02b-homepage-full.png" alt="Full Royal Aesthetic homepage showing many high-resolution images" loading="lazy" />
+        <div class="caption">Full homepage scroll. Lots of large images = slow first paint on mobile.</div>
+      </div>
+    </article>
+
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">15</span>You have analytics installed but probably aren't reading them</h3>
+        <div class="body">
+          <p>Confirmed installed:</p>
+          <ul>
+            <li><strong>GA4:</strong> <code>G-SXH1SD9ERX</code></li>
+            <li><strong>GTM:</strong> <code>GTM-WV78XKFH</code></li>
+            <li><strong>Meta Pixel:</strong> <code>178166175151262</code></li>
+          </ul>
+          <p>Two questions: are you (or anyone) actually looking at GA4 weekly to see what's converting? Is the Meta Pixel firing on the FacesConsent booking confirmation? If not, you're paying for Instagram traffic with no retargeting / lookalike audience capability.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix:</strong> wire the Meta Pixel into FacesConsent's booking-completion event so retargeting and lookalike audiences actually work, and set up a simple weekly GA4 &rarr; email summary so someone is reading the data.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ────────────── STRATEGIC ────────────── -->
+<section id="strategic" class="audit strat">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="label-pill">&#x25CF; Strategic &middot; bigger projects</span>
+        <h2>Phase 2 / 3 territory</h2>
+      </div>
+      <p class="sub">These are larger pieces of work that line up cleanly with later phases of the proposal &mdash; not in scope for the current quote, but worth knowing about.</p>
+    </div>
+
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">16</span>Two-location SEO: split into geo pages</h3>
+        <div class="body">
+          <p>Right now there's one site for "Royal Aesthetic" with two addresses footnoted. To rank for "lip filler Edgware" <em>and</em> "lip filler Oxford Street", you want two location-specific landing pages: <code>/edgware</code> and <code>/cavendish-square</code> (or <code>/oxford-street</code>). Each targets local search differently and stops the locations cannibalising each other.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">17</span>Brand-name confusion with another clinic</h3>
+        <div class="body">
+          <p>There's a competing clinic at <strong>royal-aesthetics.co.uk</strong> (Tunbridge Wells, hyphenated, plural). They rank when people search "Royal Aesthetics". Lean hard into <strong>"Royal Aesthetic London"</strong> as a search term &mdash; buy the .com if available, use it consistently across IG bio, Treatwell, GMB, and outbound links to differentiate.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="item">
+      <div>
+        <h3><span class="num-badge">18</span>The site doesn't capture leads who aren't ready to book</h3>
+        <div class="body">
+          <p>A first-time visitor researching lip filler in London might come back 3&ndash;4 times before booking. Right now the site has zero way to capture them between visits &mdash; no email signup, no "send me the price list", no "Free 10-min consult guide" lead magnet.</p>
+          <div class="fix">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Fix idea (light-touch):</strong> single email-capture popup that triggers after 30 seconds: <em>"Get our 1-page lip filler guide &mdash; what to expect, how to choose, prices."</em> Even at 2% capture rate on your monthly traffic, that's 5&ndash;10 emails/month feeding into Phase 2's birthday + reactivation flows. Phase 2 of the proposal needs this lead source to work.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ────────────── PRIORITY (top 5) ────────────── -->
+<section id="priority" class="priority">
+  <div class="container">
+    <h2>If you only fix 5 things, fix these</h2>
+    <p class="sub">Ordered by impact-per-minute. The first three between them probably double your inbound from Google + WhatsApp combined.</p>
+    <ol>
+      <li>
+        <h4>Fix the site title (item 1)</h4>
+        <p>5 minutes. Biggest SEO impact on the whole site &mdash; replaces "Your Site Title" everywhere.</p>
+        <span class="time">~5 minutes</span>
+      </li>
+      <li>
+        <h4>Surface Treatwell reviews on the homepage (item 7)</h4>
+        <p>30 minutes. Biggest trust impact &mdash; you've already earned the 5 stars; just show them.</p>
+        <span class="time">~30 minutes</span>
+      </li>
+      <li>
+        <h4>Add Save Face / JCCP / qualifications to homepage (item 6)</h4>
+        <p>Biggest conversion impact. Post-Botched-Britain, careful prospects filter on this.</p>
+        <span class="time">1&ndash;2 hours</span>
+      </li>
+      <li>
+        <h4>Resolve the phone number conflict (item 4)</h4>
+        <p>5 minutes. Stops dropped leads from the wrong number.</p>
+        <span class="time">~5 minutes</span>
+      </li>
+      <li>
+        <h4>Add descriptions + FAQs to service pages (item 8)</h4>
+        <p>Bigger job &mdash; but feeds the chatbot's knowledge base directly. Ranks higher in Google too.</p>
+        <span class="time">1 day per service</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ────────────── PHASE MAPPING ────────────── -->
+<section id="phases" class="phases">
+  <div class="container">
+    <h2>How this maps to the 3-phase proposal</h2>
+    <p class="sub">Where the audit findings naturally line up with the proposal already on the table. Items 1&ndash;5 and 11&ndash;15 aren't on this table because they're standalone Squarespace tweaks Roxana can apply directly &mdash; or roll into a redesign (see below).</p>
+    <table class="phase-table">
+      <thead>
+        <tr><th style="width:32%">Audit items</th><th style="width:18%">Phase</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8 (service-page content)</td>
+          <td><span class="ph ph-1">Phase 1</span></td>
+          <td>The chatbot needs treatment FAQ content &mdash; and the same brain can power your existing WhatsApp widget too, so site visitors get instant AI replies through the channel you already use</td>
+        </tr>
+        <tr>
+          <td>7 (reviews on site) &middot; 18 (lead capture / magnet)</td>
+          <td><span class="ph ph-2">Phase 2</span></td>
+          <td>Email automation needs a lead source &mdash; this is where the popup feeds</td>
+        </tr>
+        <tr>
+          <td>16 (geo pages) &middot; 17 (brand-name SEO)</td>
+          <td><span class="ph ph-3">Phase 3 / future</span></td>
+          <td>Bigger SEO project, not in current scope</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:32px; color: var(--text-secondary); font-size: 15px; line-height: 1.6;">
+      A handful of the structural items above &mdash; service-page IA, the hero, location split, lead-capture flow &mdash; are easier to address in a clean rebuild than to retrofit inside Squarespace. If a full redesign of <code style="background:var(--bg-tertiary);padding:2px 6px;border-radius:5px;font:13px ui-monospace,Menlo,monospace">royalaesthetic.co.uk</code> is something you'd want to see costed, I can put a separate quote together. Otherwise this audit stands on its own &mdash; nothing you read here is conditional on working with me.
+    </p>
+  </div>
+</section>
+
+<!-- ────────────── FOOTER ────────────── -->
+<footer class="foot">
+  <div class="container row">
+    <div class="left">
+      <h3>Want to walk through any of these?</h3>
+      <p>Happy to screen-share through the fixes on a 20-minute call &mdash; no obligation, no pitch. If you'd like, I can also show you what a full redesign would look like.</p>
+      <a class="cta" href="https://cal.com/finn-harris/20-min-meeting?overlayCalendar=true" target="_blank" rel="noopener">Book a 20-min call</a>
+      <p class="small">Prepared 29 April 2026 by Finn Harris &middot; Harris Automations &middot; <a href="https://harris-automations.com" target="_blank" rel="noopener">harris-automations.com</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
