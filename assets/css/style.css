@@ -793,6 +793,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 50px;
   }
+  .hero-image { order: -1; }
   .treatments, .pillars { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   .treatment-detail-image { position: relative; top: 0; }
@@ -815,7 +816,8 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .treatments, .pillars, .gallery-strip { grid-template-columns: 1fr 1fr; }
+  .treatments, .pillars { grid-template-columns: 1fr; }
+  .gallery-strip { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .hero-image::after { display: none; }
